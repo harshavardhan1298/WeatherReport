@@ -1,0 +1,16 @@
+[2025-05-15T07:32:50.614+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_report.fetch_and_store_weather manual__2025-05-15T07:32:38+00:00 [queued]>
+[2025-05-15T07:32:50.633+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_report.fetch_and_store_weather manual__2025-05-15T07:32:38+00:00 [queued]>
+[2025-05-15T07:32:50.634+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-05-15T07:32:50.668+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): fetch_and_store_weather> on 2025-05-15 07:32:38+00:00
+[2025-05-15T07:32:50.673+0000] {standard_task_runner.py:60} INFO - Started process 182 to run task
+[2025-05-15T07:32:50.678+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_report', 'fetch_and_store_weather', 'manual__2025-05-15T07:32:38+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/daily_weather_dag.py', '--cfg-path', '/tmp/tmptnw1nzpa']
+[2025-05-15T07:32:50.682+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask fetch_and_store_weather
+[2025-05-15T07:32:50.707+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-15T07:32:50.769+0000] {task_command.py:423} INFO - Running <TaskInstance: daily_weather_report.fetch_and_store_weather manual__2025-05-15T07:32:38+00:00 [running]> on host f39bcffacd6e
+[2025-05-15T07:32:50.939+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_report' AIRFLOW_CTX_TASK_ID='fetch_and_store_weather' AIRFLOW_CTX_EXECUTION_DATE='2025-05-15T07:32:38+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-15T07:32:38+00:00'
+[2025-05-15T07:32:51.061+0000] {logging_mixin.py:188} INFO - Successfully fetched weather data for Hyderabad
+[2025-05-15T07:32:51.116+0000] {logging_mixin.py:188} INFO - Successfully inserted weather data for Hyderabad
+[2025-05-15T07:32:51.117+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-05-15T07:32:51.131+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=daily_weather_report, task_id=fetch_and_store_weather, execution_date=20250515T073238, start_date=20250515T073250, end_date=20250515T073251
+[2025-05-15T07:32:51.172+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-05-15T07:32:51.196+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
