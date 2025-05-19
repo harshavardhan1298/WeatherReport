@@ -1,43 +1,30 @@
-"""
-Weather data fetcher module for Airflow DAG
-"""
 import requests
 import json
 from datetime import datetime
 
 def fetch_weather_data(city, api_key):
-    """
-    Fetch weather data for a given city using the OpenWeatherMap API
-
-    Args:
-        city (str): City name
-        api_key (str): OpenWeatherMap API key
-
-    Returns:
-        dict: Weather data including temperature, humidity, etc.
-    """
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     params = {
         "q": city,
         "appid": api_key,
-        "units": "metric"  # For temperature in Celsius
+        "units": "metric"  
     }
 
     try:
         response = requests.get(base_url, params=params)
-        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        response.raise_for_status()  
 
         data = response.json()
 
-        # Extract relevant information
+
         weather_data = {
             "city": city,
             "temperature": data["main"]["temp"],
             "humidity": data["main"]["humidity"],
             "pressure": data["main"]["pressure"],
-            "description": data["weather"][0]["description"],  # Changed from weather_description to description
+            "description": data["weather"][0]["description"],  
             "wind_speed": data["wind"]["speed"],
-            "datetime": datetime.now()  # Changed from timestamp to datetime and using datetime object
+            "datetime": datetime.now()
         }
 
         print(f"Successfully fetched weather data for {city}")
